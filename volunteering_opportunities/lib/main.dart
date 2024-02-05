@@ -1,144 +1,160 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: HomePage(),
+  )
+);
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Login(title: 'Login'),
-    );
-  }
-}
-
-class Login extends StatefulWidget {
-  const Login({super.key, required this.title});
-  final String title;
-
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
-  final _formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: TextFormField(
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: "Email"),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    return null;
-                  },
+      body: Container(
+        padding: EdgeInsets.symmetric(vertical: 30),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            colors: [
+              Color.fromARGB(255, 74, 142, 76),
+              Color.fromARGB(255, 36, 112, 175)
+            ]
+          )
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: 20,),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text("Login", style: TextStyle(color: Colors.white, fontSize: 40),),
+                  SizedBox(height: 10,),
+                  Text("Welcome", style: TextStyle(color: Colors.white, fontSize: 18),)
+                ]
+              )
+            ),
+            SizedBox(height: 50,),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [BoxShadow(
+                    color: Colors.black,
+                    blurRadius: 60,
+                    offset: Offset(20, 20)
+                  )],
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60)),
                 ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: TextFormField(
-                  controller: passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: "Password"),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16.0),
-                child: Center(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        if (emailController.text == "jladella@ucsc.edu" && passwordController.text == "jUdycollege2023!") {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomePage(
-                                  email: emailController.text,
-                              )),
-                            );
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Invalid Credentials')),
-                              );
-                          }
+                child: Padding(
+                  padding: EdgeInsets.all(30),
+                  child: Column(
+                    children: <Widget> [
+                      SizedBox(height: 40,),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [BoxShadow(
+                            color: Color.fromARGB(92, 19, 60, 83),
+                            blurRadius: 20,
+                            offset: Offset(0, 10)
+                          )]
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(color: Colors.grey),),
+                              ),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    hintText: "Email",
+                                    hintStyle: TextStyle(color: Colors.grey),
+                                    border: InputBorder.none
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                ),
+                                child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: "Password",
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                  border: InputBorder.none
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 40,),
+                      Text("Forgot Password?", style: TextStyle(color: Colors.grey),),
+                      SizedBox(height: 40,),
+                      Container(
+                        height: 50,
+                        margin: EdgeInsets.symmetric(horizontal: 180),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          boxShadow: [BoxShadow(
+                            color: Color.fromARGB(100, 48, 131, 179),
+                            blurRadius: 20,
+                            offset: Offset(0, 10)
+                          )],
+                          gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          colors: [
+                            Color.fromARGB(244, 36, 112, 175),
+                            Color.fromARGB(227, 74, 142, 76),
+                            ],
+                          ),
+                        ),
+                        child: Center(
+                          child: Text("Sign In", style: TextStyle(color: Colors.white, fontSize: 16)),
+                        ),
+                      ),
 
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Please fill input')),
-                        );
-                      }
-                    },
-                    child: const Text('Submit'),
+                      SizedBox(height: 150,),
+                      Text("Or continue with", style: TextStyle(color: Colors.grey),),
+
+                      SizedBox(height: 60,),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 300),
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.white,
+                                boxShadow: [BoxShadow(
+                                  color: Color.fromARGB(100, 48, 131, 179),
+                            blurRadius: 20,
+                            offset: Offset(0, 10)
+                                )],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
-  }
-}
-class HomePage extends StatelessWidget {
-  const HomePage({super.key, required this.email});
-
-  final String email;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page'),
-        ),
-        body: Column(
-          children: [
-            Text(email),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text("Go back!"),
-              ),
-            ),
-          ],
-        ));
   }
 }
