@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'exploremore.dart';
 import 'description_page.dart';
 
 void main() {
@@ -12,6 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //NEED TO CHANGE
+      //home: ExploreMore(),
       home: DescriptionPage(),
     );
   }
