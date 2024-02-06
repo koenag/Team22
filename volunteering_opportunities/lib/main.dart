@@ -35,9 +35,9 @@ class HomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text("Login", style: TextStyle(color: Colors.white, fontSize: 40),),
+                  Text("Welcome", style: TextStyle(color: Colors.white, fontSize: 40),),
                   SizedBox(height: 10,),
-                  Text("Welcome", style: TextStyle(color: Colors.white, fontSize: 18),)
+                  Text("Login", style: TextStyle(color: Colors.white, fontSize: 18),)
                 ]
               )
             ),
@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
                       SizedBox(height: 40,),
                       Container(
                         height: 50,
-                        margin: EdgeInsets.symmetric(horizontal: 180),
+                        margin: EdgeInsets.symmetric(horizontal: 100),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
                           boxShadow: [BoxShadow(
@@ -123,30 +123,8 @@ class HomePage extends StatelessWidget {
                           child: Text("Sign In", style: TextStyle(color: Colors.white, fontSize: 16)),
                         ),
                       ),
-
-                      SizedBox(height: 150,),
-                      Text("Or continue with", style: TextStyle(color: Colors.grey),),
-
-                      SizedBox(height: 60,),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Container(
-                              margin: EdgeInsets.symmetric(horizontal: 300),
-                              height: 80,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.white,
-                                boxShadow: [BoxShadow(
-                                  color: Color.fromARGB(100, 48, 131, 179),
-                            blurRadius: 20,
-                            offset: Offset(0, 10)
-                                )],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                      SizedBox(height: 40,),
+                      Text("Or continue with Google →", style: TextStyle(color: Colors.grey),),
                     ],
                   ),
                 ),
