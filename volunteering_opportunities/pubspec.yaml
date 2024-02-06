@@ -28,8 +28,11 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  favorite_button: ^0.0.3
+  url_launcher: ^6.2.4
   flutter:
     sdk: flutter
+    
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -59,10 +62,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
- # assets:
-    #- lib/images/phone.png
-    #- lib/images/www.png
-    #- lib/images/email.png
+  assets:
+    - lib/images/phone.png
+    - lib/images/www.png
+    - lib/images/email.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
