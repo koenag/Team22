@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //NEED TO CHANGE
-      //home: ExploreMore(),
-      home: DescriptionPage(),
+      home: ExploreMore(),
+      //home: DescriptionPage(),
     );
   }
 }
