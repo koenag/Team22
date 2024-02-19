@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:favorite_button/favorite_button.dart';
 
 class ExploreMore extends StatelessWidget {
   const ExploreMore({super.key});
@@ -15,7 +16,7 @@ class ExploreMore extends StatelessWidget {
             SizedBox(
               height: 150, // Adjust the height as needed
               child: Image.asset(
-                'volunteering_opportunities/lib/headers/image-remove-preview(1).png', // Replace with the path to your image asset
+                'volunteering_opportunities/lib/headers/header_orange.png', // Replace with the path to your image asset
                 fit: BoxFit.cover, // Adjust the fit as needed
               ),
             ),
@@ -76,12 +77,10 @@ class ExploreMore extends StatelessWidget {
                 ],
               ),
               Spacer(),
-              IconButton(
-                icon: Icon(Icons.favorite, color: Colors.grey), // Heart-shaped icon
-                onPressed: () {
-                  // Add your onPressed functionality here
-                  icon: Icon(Icons.favorite, color: Colors.red);
-                  print("Added to Favorites!");
+              FavoriteButton(
+                isFavorite: false,
+                valueChanged: (_isFavorite) {
+                print('Is Favorite : $_isFavorite');
                 },
               ),
             ],
