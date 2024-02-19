@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'exploremore.dart';
 import 'description_page.dart';
 import 'login_screen.dart';
