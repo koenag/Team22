@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'exploremore.dart';
 import 'description_page.dart';
 import 'login_screen.dart';
+import 'profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //NEED TO CHANGE
       //home: ExploreMore(),
-      home: Login()
+      //home: Login()
       //home: DescriptionPage(),
+      home: ProfilePage(),
     );
   }
 }
