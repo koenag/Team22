@@ -66,6 +66,7 @@ flutter:
     - lib/images/phone.png
     - lib/images/www.png
     - lib/images/email.png
+    - lib/headers/header_orange.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
