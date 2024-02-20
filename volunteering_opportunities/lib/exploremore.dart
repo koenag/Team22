@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:favorite_button/favorite_button.dart';
+
 import 'package:volunteering_opportunities/color_palette.dart';
+=======
+
 
 class ExploreMore extends StatelessWidget {
   const ExploreMore({super.key});
@@ -78,13 +81,10 @@ class ExploreMore extends StatelessWidget {
                 ],
               ),
               Spacer(),
-
-              IconButton(
-                icon: Icon(Icons.favorite, color: Colors.grey), // Heart-shaped icon
-                onPressed: () {
-                  // Add your onPressed functionality here
-                  icon: Icon(Icons.favorite, color: Colors.red);
-                  print("Added to Favorites!");
+              FavoriteButton(
+                isFavorite: false,
+                valueChanged: (_isFavorite) {
+                print('Is Favorite : $_isFavorite');
                 },
               ),
             ],
