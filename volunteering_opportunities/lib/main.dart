@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 import 'exploremore.dart';
 import 'description_page.dart';
 import 'login_screen.dart';
 import 'profile_page.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
+  
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "812657738177",
+    "project_id": "team-22-b0928",
+    "storage_bucket": "team-22-b0928.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812657738177:android:8c9cb4e50e84bbfae36f40",
+        "android_client_info": {
+          "package_name": "com.example.volunteering_opportunities"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812657738177-62uu2chgisivofqem3jpn0v85so8q0v6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5OQphSWptqehuv2xirik92K7ac273f4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812657738177-62uu2chgisivofqem3jpn0v85so8q0v6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "812657738177-61h58ruv42kbr2e34aesh3evm5nknpn3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.volunteeringOpportunities.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
