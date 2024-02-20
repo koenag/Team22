@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:favorite_button/favorite_button.dart';
 
 import 'package:volunteering_opportunities/color_palette.dart';
+import 'package:volunteering_opportunities/description_page.dart';
 
 
 class ExploreMore extends StatelessWidget {
@@ -74,7 +75,12 @@ class ExploreMore extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       // Add your onTap functionality here
-                      print("Name of Opportunity clicked!");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context)=> DescriptionPage()
+                          ),
+                      );
                     },
                     child: Text(
                       "Name of Opportunity",
@@ -131,7 +137,12 @@ class ExploreMore extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       // Add your onTap functionality here
-                      print("Name of Opportunity clicked!");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context)=> DescriptionPage()
+                          ),
+                      );
                     },
                     child: Text(
                       "Name of Opportunity",
