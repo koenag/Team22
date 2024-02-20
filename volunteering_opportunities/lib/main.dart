@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //NEED TO CHANGE
-      //home: ExploreMore(),
+      home: ExploreMore(),
       //home: Login()
       //home: DescriptionPage(),
-      home: ProfilePage(),
+      //home: ProfilePage(),
     );
   }
 }
