@@ -24,22 +24,28 @@ class ExploreMore extends StatelessWidget {
                 fit: BoxFit.cover, // Adjust the fit as needed
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (BuildContext context, int index) {
-                  return buildOnCampus(context);
-                },
+            AppBar(
+                title: const Text('On Campus', style: TextStyle(color: AppColors.dgreen, fontStyle: FontStyle.italic),),
               ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (BuildContext context, int index) {
-                  return buildOffCampus(context);
-                },
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (BuildContext context, int index) {
+                    return buildOnCampus(context);
+                  },
+                ),
               ),
-            )
+              AppBar(
+                title: const Text('Off Campus', style: TextStyle(color: AppColors.dgreen, fontStyle: FontStyle.italic),),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (BuildContext context, int index) {
+                    return buildOffCampus(context);
+                  },
+                ),
+              ),
           ],
         ),
       ),
@@ -84,7 +90,7 @@ class ExploreMore extends StatelessWidget {
                     },
                     child: Text(
                       "Name of Opportunity",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white70),
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                   ),
                   SizedBox(height: 4),
