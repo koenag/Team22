@@ -25,7 +25,7 @@ class CreateAccount extends StatelessWidget {
                     const SizedBox(height: 60.0),
 
                     const Text(
-                      "New to Snailed It?",
+                      "New to Slug Impact?",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 30,
@@ -105,7 +105,7 @@ class CreateAccount extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: Colors.grey,
+                        backgroundColor: AppColors.dbrown,
                       ),
                     )
                 ),

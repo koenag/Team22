@@ -24,7 +24,9 @@ class DescriptionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
       backgroundColor: Colors.grey[200],
 
       body: Center(
@@ -78,7 +80,7 @@ class DescriptionPage extends StatelessWidget {
               child: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: AppColors.lbrown,
+                  color: AppColors.dbrown,
                   borderRadius: BorderRadius.circular(12.0)
                 ),
                 child: Padding(
@@ -245,7 +247,7 @@ class DescriptionPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(AppColors.lbrown),
+                  backgroundColor: MaterialStateProperty.all(AppColors.dbrown),
                 ),
                 child: Text(
                   'Sign Up!',
@@ -312,6 +314,7 @@ class DescriptionPage extends StatelessWidget {
           ]
         ),
       )
+    )
     );
   }
 }
