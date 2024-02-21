@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 import 'exploremore.dart';
 import 'description_page.dart';
 import 'color_palette.dart';
-import 'login_screen.dart';
+import 'create_account.dart';
 import 'profile_page.dart';
 
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
+  
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,11 +28,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //NEED TO CHANGE
-      home: ExploreMore(),
-      //home: Login()
-      //home: DescriptionPage(),
-      //home: ProfilePage(),
+      debugShowCheckedModeBanner: false,
+      home: CreateAccount()
     );
   }
 }

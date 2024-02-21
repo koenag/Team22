@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:favorite_button/favorite_button.dart';
 
 import 'package:volunteering_opportunities/color_palette.dart';
+import 'description_page.dart';
 import 'package:volunteering_opportunities/description_page.dart';
+
 
 
 class ExploreMore extends StatelessWidget {
@@ -144,11 +146,11 @@ class ExploreMore extends StatelessWidget {
                     onPressed: () {
                       // Add your onTap functionality here
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context)=> DescriptionPage()
-                          ),
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context)=> DescriptionPage(),
+                          )
+                        );
                     },
                     child: Text(
                       "Name of Opportunity",
