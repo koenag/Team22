@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'color_palette.dart';
+import 'exploremore.dart';
+import 'profile_page.dart';
 
 class DescriptionPage extends StatelessWidget {
   const DescriptionPage({super.key});
@@ -20,11 +23,15 @@ class DescriptionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
       backgroundColor: Colors.grey[200],
 
       body: Center(
-        child: Column(
+        child: 
+        Column(
           children:[
 
             // Title of Opportunity
@@ -34,7 +41,7 @@ class DescriptionPage extends StatelessWidget {
               child: Text(
                 'Title of Opportunity',
                 style: TextStyle(
-                  color: Colors.green,
+                  color: AppColors.dgreen,
                   fontWeight: FontWeight.w600,
                   fontSize: 24,
                 ),
@@ -73,7 +80,7 @@ class DescriptionPage extends StatelessWidget {
               child: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Colors.amber,
+                  color: AppColors.dbrown,
                   borderRadius: BorderRadius.circular(12.0)
                 ),
                 child: Padding(
@@ -100,7 +107,7 @@ class DescriptionPage extends StatelessWidget {
                   Container(
                     height: 30,
                     decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 227, 127, 160),
+                    color: AppColors.lgreen,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -112,7 +119,7 @@ class DescriptionPage extends StatelessWidget {
                     height: 30,
                     width: 250,
                     decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 227, 127, 160),
+                    color: AppColors.lgreen,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(6.0),
@@ -139,7 +146,7 @@ class DescriptionPage extends StatelessWidget {
                   Container(
                     height: 30,
                     decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 227, 127, 160),
+                    color: AppColors.lgreen,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -151,7 +158,7 @@ class DescriptionPage extends StatelessWidget {
                     height: 30,
                     width: 250,
                     decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 227, 127, 160),
+                    color: AppColors.lgreen,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(6.0),
@@ -178,7 +185,7 @@ class DescriptionPage extends StatelessWidget {
                   Container(
                     height: 30,
                     decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 227, 127, 160),
+                    color: AppColors.lgreen,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -190,7 +197,7 @@ class DescriptionPage extends StatelessWidget {
                     height: 30,
                     width: 250,
                     decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 227, 127, 160),
+                    color: AppColors.lgreen,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(6.0),
@@ -240,7 +247,7 @@ class DescriptionPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.amber),
+                  backgroundColor: MaterialStateProperty.all(AppColors.dbrown),
                 ),
                 child: Text(
                   'Sign Up!',
@@ -266,17 +273,38 @@ class DescriptionPage extends StatelessWidget {
                 children: [
                   IconButton (
                     iconSize: 40,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context)=> ExploreMore(),
+                          )
+                        );
+                    },
                     icon: Icon(Icons.arrow_back_ios),
                   ),
                   IconButton (
                     iconSize: 40,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context)=> ExploreMore(),
+                          )
+                        );
+                    },
                     icon: Icon(Icons.home_rounded),
                   ),
                   IconButton (
                     iconSize: 40,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context)=> ProfilePage(),
+                          )
+                        );
+                    },
                     icon: Icon(Icons.person),
                   ),
                 ]
@@ -286,6 +314,7 @@ class DescriptionPage extends StatelessWidget {
           ]
         ),
       )
+    )
     );
   }
 }
