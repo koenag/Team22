@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:favorite_button/favorite_button.dart';
 
+import 'package:volunteering_opportunities/color_palette.dart';
+import 'description_page.dart';
+
+
 class ExploreMore extends StatelessWidget {
   const ExploreMore({super.key});
 
@@ -9,14 +13,14 @@ class ExploreMore extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Slug Impact', style: TextStyle(color: Colors.lightBlue, fontStyle: FontStyle.italic),),
+          title: const Text('Slug Impact', style: TextStyle(color: AppColors.dbrown, fontStyle: FontStyle.italic),),
         ),
         body: Column(
           children: [
             SizedBox(
               height: 150, // Adjust the height as needed
               child: Image.asset(
-                'volunteering_opportunities/lib/headers/header_orange.png', // Replace with the path to your image asset
+                'lib/headers/header_orange.png',
                 fit: BoxFit.cover, // Adjust the fit as needed
               ),
             ),
@@ -43,14 +47,14 @@ class ExploreMore extends StatelessWidget {
     child : Card (
       margin: EdgeInsets.all(12),
       elevation: 4,
-      color: Color.fromRGBO(32, 50, 76, .9),
+      color: AppColors.lgreen,
       child: Container(
         decoration: BoxDecoration(
           //color : Colors.blue,
           //borderRadius: BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60)),
           border: Border(
-            right: BorderSide(color: Colors.blue, width: 5.0),
-            bottom: BorderSide(color: Colors.blue, width: 5.0),),
+            right: BorderSide(color: AppColors.dgreen, width: 5.0),
+            bottom: BorderSide(color: AppColors.dgreen, width: 5.0),),
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
@@ -63,7 +67,12 @@ class ExploreMore extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       // Add your onTap functionality here
-                      print("Name of Opportunity clicked!");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context)=> DescriptionPage(),
+                          )
+                        );
                     },
                     child: Text(
                       "Name of Opportunity",

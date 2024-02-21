@@ -1,7 +1,10 @@
+/*
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'color_palette.dart';
+import 'exploremore.dart';
 
 
 class Login extends StatelessWidget {
@@ -18,8 +21,8 @@ class Login extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             colors: [
-              Color.fromARGB(255, 74, 142, 76),
-              Color.fromARGB(255, 36, 112, 175)
+              AppColors.lgreen,
+              AppColors.lblue,
             ]
           )
         ),
@@ -54,7 +57,6 @@ class Login extends StatelessWidget {
                   padding: EdgeInsets.all(30),
                   child: Column(
                     children: <Widget> [
-                      SizedBox(height: 40,),
                       Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -95,32 +97,33 @@ class Login extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: 40,),
+                      SizedBox(height: 20,),
                       Text("Forgot Password?", style: TextStyle(color: Colors.grey),),
-                      SizedBox(height: 40,),
-                      Container(
-                        height: 50,
-                        margin: EdgeInsets.symmetric(horizontal: 100),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          boxShadow: [BoxShadow(
-                            color: Color.fromARGB(100, 48, 131, 179),
-                            blurRadius: 20,
-                            offset: Offset(0, 10)
-                          )],
-                          gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          colors: [
-                            Color.fromARGB(244, 36, 112, 175),
-                            Color.fromARGB(227, 74, 142, 76),
-                            ],
-                          ),
+                      Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(AppColors.lgreen),
                         ),
-                        child: Center(
-                          child: Text("Sign In", style: TextStyle(color: Colors.white, fontSize: 16)),
+                        child: Text(
+                          'Sign Up!',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          )
                         ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context)=> ExploreMore(),
+                          )
+                        );
+                        },
                       ),
-                      SizedBox(height: 40,),
+                      ),
+                      SizedBox(height: 20,),
                       Text("Or continue with Google →", style: TextStyle(color: Colors.grey),),
                     ],
                   ),
@@ -133,3 +136,4 @@ class Login extends StatelessWidget {
     );
   }
 }
+*/

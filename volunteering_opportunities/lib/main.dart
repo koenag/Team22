@@ -6,8 +6,10 @@ import 'firebase_options.dart';
 
 import 'exploremore.dart';
 import 'description_page.dart';
-import 'login_screen.dart';
+import 'color_palette.dart';
+import 'create_account.dart';
 import 'profile_page.dart';
+
 
 void main() async {
   await Firebase.initializeApp(
@@ -26,11 +28,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //NEED TO CHANGE
-      //home: ExploreMore(),
-      //home: Login()
-      //home: DescriptionPage(),
-      home: ProfilePage(),
+      debugShowCheckedModeBanner: false,
+      home: CreateAccount()
     );
   }
 }
