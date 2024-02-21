@@ -14,13 +14,20 @@ class ExploreMore extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Slug Impact', style: TextStyle(color: AppColors.dbrown, fontStyle: FontStyle.italic),),
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(4.0),
+            child: Container(
+              color: AppColors.dbrown,
+              height: 4.0,
+            ),
+          ),
         ),
         body: Column(
           children: [
             SizedBox(
               height: 150, // Adjust the height as needed
               child: Image.asset(
-                'lib/headers/header_orange.png',
+                'lib/headers/header_final.png',
                 fit: BoxFit.cover, // Adjust the fit as needed
               ),
             ),
