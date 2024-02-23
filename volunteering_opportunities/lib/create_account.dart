@@ -2,9 +2,31 @@ import 'package:flutter/material.dart';
 import 'color_palette.dart';
 import 'exploremore.dart';
 import 'login.dart';
+import 'firebase_auth_services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class CreateAccount extends StatelessWidget {
+class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
+
+  @override
+  State<CreateAccount> createState() => _CreateAccountState();
+}
+
+class _CreateAccountState extends State<CreateAccount> {
+
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+  //TextEditingController usernameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+   // usernameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +66,7 @@ class CreateAccount extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     TextField(
+                      //controller: usernameController,
                       decoration: InputDecoration(
                           hintText: "Username",
                           border: OutlineInputBorder(
@@ -57,6 +80,7 @@ class CreateAccount extends StatelessWidget {
                     const SizedBox(height: 20),
 
                     TextField(
+                      controller: emailController,
                       decoration: InputDecoration(
                           hintText: "Email",
                           border: OutlineInputBorder(
@@ -70,6 +94,7 @@ class CreateAccount extends StatelessWidget {
                     const SizedBox(height: 20),
 
                     TextField(
+                      controller: passwordController,
                       decoration: InputDecoration(
                         hintText: "Password",
                         border: OutlineInputBorder(
@@ -91,12 +116,7 @@ class CreateAccount extends StatelessWidget {
 
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context)=> ExploreMore(),
-                          )
-                        );
+                        signUp();
                       },
                       child: Text(
                         "Sign up",
@@ -133,5 +153,28 @@ class CreateAccount extends StatelessWidget {
         ),
       ),
     );
+
+  }
+  void signUp() async {
+      //String username = usernameController.text;
+      String email = emailController.text;
+      String password = passwordController.text;
+
+      User? user = await _auth.signUpWithEmailAndPassword(email, password);
+      print("hello we reached this step!");
+
+      if (user != null) {
+        print("User has signed up successfully!");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context)=> ExploreMore(),
+          )
+        );
+      }
+      else {
+        print("Some error occurred");
+      }
+
   }
 }
