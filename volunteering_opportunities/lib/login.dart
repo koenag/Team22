@@ -2,9 +2,28 @@ import 'package:flutter/material.dart';
 import 'color_palette.dart';
 import 'exploremore.dart';
 import 'create_account.dart';
+import 'firebase_auth_services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +49,7 @@ class Login extends StatelessWidget {
     return const Column(
       children: [
         Text(
-          "Snailed It",
+          "Slug Impact",
           style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
         ),
         Text("Enter Login Information"),
@@ -43,8 +62,9 @@ class Login extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         TextField(
+          controller: emailController,
           decoration: InputDecoration(
-              hintText: "Username",
+              hintText: "Email",
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none
@@ -55,6 +75,7 @@ class Login extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         TextField(
+          controller: passwordController,
           decoration: InputDecoration(
             hintText: "Password",
             border: OutlineInputBorder(
@@ -69,12 +90,7 @@ class Login extends StatelessWidget {
         const SizedBox(height: 10),
         ElevatedButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context)=> ExploreMore(),
-              )
-            );
+            signIn();
           },
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
@@ -108,5 +124,27 @@ class Login extends StatelessWidget {
         )
       ],
     );
+  }
+
+  void signIn() async {
+      String email = emailController.text;
+      String password = passwordController.text;
+
+      User? user = await _auth.signInWithEmailAndPassword(email, password);
+      print("hello we reached this step!");
+
+      if (user != null) {
+        print("User has signed in successfully!");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context)=> ExploreMore(),
+          )
+        );
+      }
+      else {
+        print("Some error occurred");
+      }
+
   }
 }
