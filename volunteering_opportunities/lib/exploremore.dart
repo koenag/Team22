@@ -4,11 +4,31 @@ import 'package:favorite_button/favorite_button.dart';
 import 'package:volunteering_opportunities/color_palette.dart';
 import 'description_page.dart';
 import 'package:volunteering_opportunities/description_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 
 class ExploreMore extends StatelessWidget {
-  const ExploreMore({super.key});
+  ExploreMore({super.key});
+
+  //document IDs
+  List<String> docIDs = [];
+
+  //get document Ids
+  Future getDocId() async {
+    await FirebaseFirestore.instance.collection('on_campus').get().then(
+      (snapshot) => snapshot.docs.forEach((element) {
+        print(element.reference);
+      })
+    );
+  } 
+
+  @override
+  void initState() {
+    getDocId();
+    //super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
