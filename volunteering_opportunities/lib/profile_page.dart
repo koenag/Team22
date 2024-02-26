@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'color_palette.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -8,10 +9,11 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green[700],
-        title: Center(
-          child: const Text('Profile'),
-        ),
+        backgroundColor: AppColors.dbrown,
+        title: const Text(
+          'Profile',
+          textAlign: TextAlign.center,
+          ),
       ),
       body: ListView(
         children: <Widget>[
@@ -20,8 +22,8 @@ class ProfilePage extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color.fromARGB(176, 71, 157, 228),
-                  const Color.fromARGB(255, 97, 158, 209)
+                  AppColors.dgreen,
+                  AppColors.lgreen
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -36,7 +38,7 @@ class ProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundColor: Color.fromARGB(132, 72, 163, 238),
+                      backgroundColor: AppColors.lblue,
                       minRadius: 60.0,
                       child: CircleAvatar(
                         radius: 70.0,
