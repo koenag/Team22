@@ -4,11 +4,41 @@ import 'package:favorite_button/favorite_button.dart';
 import 'package:volunteering_opportunities/color_palette.dart';
 import 'description_page.dart';
 import 'package:volunteering_opportunities/description_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-
+void main() => runApp(ExploreMore());
 
 class ExploreMore extends StatelessWidget {
-  const ExploreMore({super.key});
+  ExploreMore({super.key});
+
+  List<String> titlesOff = ["Homeless Garden Project", "Make-A-Wish", "Friends Outside", "Mercy Housing", "YouthServe"];
+  List<String> lengthOff = ["One Day", "Flexible", "4 Months", "Flexible", "One Week"];
+  List<String> typeOff = ["In person", "In person", "Hybrid", "In person", "Hybrid"];
+
+  List<String> titlesOn = ["Lionel Cantú Queer Center", "Lionel Cantú Queer Center", "Saturdays in the Soil", "Second Harvest"];
+  List<String> lengthOn = ["2 Hrs/Week", "Winter Quarter", "Saturdays, Weekly", "Weekends"];
+  List<String> typeOn = ["In person", "Hybrid", "In person", "In person", "Hybrid"];
+
+
+  /*//document IDs
+  List<String> docIDs = [];
+
+  //get document Ids
+  Future getDocId() async {
+    await FirebaseFirestore.instance.collection('on_campus').get().then(
+      (snapshot) => snapshot.docs.forEach((element) {
+        print(element.reference);
+      })
+    );
+  } 
+
+  @override
+  void initState() {
+    getDocId();
+    print('heeeeeeeeeeeerrrrrrrrrreeeeeeeeeeeeeeee');
+    //super.initState();
+  } */
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +46,20 @@ class ExploreMore extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Slug Impact', style: TextStyle(color: AppColors.dbrown, fontStyle: FontStyle.italic),),
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(4.0),
+            child: Container(
+              color: AppColors.dbrown,
+              height: 4.0,
+            ),
+          ),
         ),
         body: Column(
           children: [
             SizedBox(
               height: 150, // Adjust the height as needed
               child: Image.asset(
-                'lib/headers/header_orange.png',
+                'lib/headers/header_final.png',
                 fit: BoxFit.cover, // Adjust the fit as needed
               ),
             ),
@@ -31,9 +68,14 @@ class ExploreMore extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 5,
+                  itemCount: 4,
                   itemBuilder: (BuildContext context, int index) {
-                    return buildOnCampus(context);
+                    String title = titlesOn[index];
+                    String length = lengthOn[index];
+                    String type = typeOn[index];
+                      print(title);
+                      return buildOnCampus(context, title, length, type);
+                                        
                   },
                 ),
               ),
@@ -44,7 +86,11 @@ class ExploreMore extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: 5,
                   itemBuilder: (BuildContext context, int index) {
-                    return buildOffCampus(context);
+                    String title = titlesOff[index];
+                    String length = lengthOff[index];
+                    String type = typeOff[index];
+                      print(title);
+                      return buildOffCampus(context, title, length, type);
                   },
                 ),
               ),
@@ -54,7 +100,7 @@ class ExploreMore extends StatelessWidget {
     );
   }
 
-  Widget buildOnCampus(BuildContext context) {
+  Widget buildOnCampus(BuildContext context, title1, length1, type1) {
     return GestureDetector(
       onTap: () {
         // Add your onTap functionality here
@@ -91,14 +137,14 @@ class ExploreMore extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      "Name of Opportunity",
+                      title1,
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                   ),
                   SizedBox(height: 4),
                   Text("On Campus", style: TextStyle(color: Colors.white70)),
-                  Text("Remote/In-Person/Hybrid", style: TextStyle(color: Colors.white70)),
-                  Text("Length of Volunteering", style: TextStyle(color: Colors.white70)),
+                  Text(type1, style: TextStyle(color: Colors.white70)),
+                  Text(length1, style: TextStyle(color: Colors.white70)),
                 ],
               ),
               Spacer(),
@@ -116,7 +162,7 @@ class ExploreMore extends StatelessWidget {
     );
   }
 
-  Widget buildOffCampus(BuildContext context) {
+  Widget buildOffCampus(BuildContext context, title1, length1, type1) {
     return GestureDetector(
       onTap: () {
         // Add your onTap functionality here
@@ -153,14 +199,14 @@ class ExploreMore extends StatelessWidget {
                         );
                     },
                     child: Text(
-                      "Name of Opportunity",
+                      title1,
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                   ),
                   SizedBox(height: 4),
                   Text("Off Campus", style: TextStyle(color: Colors.white70)),
-                  Text("Remote/In-Person/Hybrid", style: TextStyle(color: Colors.white70)),
-                  Text("Length of Volunteering", style: TextStyle(color: Colors.white70)),
+                  Text(type1, style: TextStyle(color: Colors.white70)),
+                  Text(length1, style: TextStyle(color: Colors.white70)),
                 ],
               ),
               Spacer(),
