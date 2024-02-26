@@ -6,7 +6,6 @@ import 'description_page.dart';
 import 'package:volunteering_opportunities/description_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() => runApp(ExploreMore());
 
 class ExploreMore extends StatelessWidget {
   ExploreMore({super.key});
